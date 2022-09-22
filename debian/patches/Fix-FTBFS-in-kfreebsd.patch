@@ -1,0 +1,21 @@
+From: Steven Chamberlain <steven@pyro.eu.org>
+Date: Sun, 12 Oct 2014 16:45:17 +0100
+Subject: Fix FTBFS in kfreebsd-*
+
+Bug-Debian: http://bugs.debian.org/765010
+---
+ src/device.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/device.c b/src/device.c
+index 87a36cc..b6741b7 100644
+--- a/src/device.c
++++ b/src/device.c
+@@ -20,6 +20,7 @@
+ 
+ #define _DEFAULT_SOURCE
+ #define _BSD_SOURCE
++#define __FAVOR_BSD
+ 
+ #ifdef HAVE_CONFIG_H
+ #include <config.h>

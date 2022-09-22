@@ -1,0 +1,17 @@
+From: Yves-Alexis Perez <corsac@corsac.net>
+Date: Sat, 30 Nov 2019 19:31:35 +0100
+Subject: drop PIDFile directive, use default one in /run
+
+---
+ systemd/usbmuxd.service.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/systemd/usbmuxd.service.in b/systemd/usbmuxd.service.in
+index bee2476..cb22f9a 100644
+--- a/systemd/usbmuxd.service.in
++++ b/systemd/usbmuxd.service.in
+@@ -4,4 +4,3 @@ Documentation=man:usbmuxd(8)
+ 
+ [Service]
+ ExecStart=@sbindir@/usbmuxd --user usbmux --systemd
+-PIDFile=@localstatedir@/run/usbmuxd.pid

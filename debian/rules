@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+%:
+	dh $@
+
+# Only install systemd/udev files on Linux
+# see https://buildd.debian.org/quinn-diff/sid/Packages-arch-specific
+override_dh_install:
+ifneq ($(DEB_HOST_ARCH_OS),linux)
+	rm -f debian/usbmuxd/lib/udev/rules.d/* debian/tmp/lib/systemd/system/*
+endif
+	dh_install debian/org.libimobiledevice.usbmuxd.metainfo.xml usr/share/metainfo/
+	dh_install
