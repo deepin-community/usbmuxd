@@ -1,3 +1,76 @@
+usbmuxd (1.1.1-7) unstable; urgency=medium
+
+  * d/patch: add fix for path traversal vulnerability (CVE-2025-66004)
+    (Closes: #1122507)
+  * d/control: drop references to obsolete kFreeBSD
+  * d/copyright updated
+  * d/control: update standards version to 4.7.3
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Fri, 02 Jan 2026 12:21:22 +0100
+
+usbmuxd (1.1.1-6) unstable; urgency=medium
+
+  * change license on metainfo file to MIT.
+    Thanks to Petter Reinholdtsen for the suggestion and patch
+    (Closes: #1077480)
+  * d/control: update debhelper-compat to 13
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Fri, 24 Jan 2025 10:19:55 +0100
+
+usbmuxd (1.1.1-5) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to unstable.
+  * debian/control: Limit version requirement to build-depends on the
+    new libplist and libimobiledevice libraries.
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 12 Jul 2024 18:52:20 -0400
+
+usbmuxd (1.1.1-5~exp3) experimental; urgency=medium
+
+  * d/patch: add patch to fix false errors with new plist API
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Mon, 22 Jan 2024 14:22:23 +0100
+
+usbmuxd (1.1.1-5~exp2) experimental; urgency=medium
+
+  * d/control: build against systemd-dev (Closes: #1060483)
+
+ -- Yves-Alexis Perez <corsac@debian.org>  Sun, 21 Jan 2024 21:16:52 +0100
+
+usbmuxd (1.1.1-5~exp1) experimental; urgency=medium
+
+  * Team upload.
+  * debian/patches/0003-Port-to-libplist-2.3.0.patch: Add patch
+    from upstream to migrate to libplist 2.3.0+.
+
+ -- Boyuan Yang <byang@debian.org>  Thu, 03 Aug 2023 16:07:54 -0400
+
+usbmuxd (1.1.1-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Repository, Repository-Browse.
+
+  [ Yves-Alexis Perez ]
+  * d/usbmuxd.postrm: remove usbmux user at purge time (Closes: #562817)
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster (oldstable)
+
+  [ Dylan Aïssi ]
+  * debian/watch: Switch to github repository.
+
+  [ Boyuan Yang ]
+  * debian/gbp.conf: Drop [buildpackage] section. Such settings should
+    be placed in user-level gbp configuration rather than package-level.
+  * debian/usbmuxd.lintian-overrides: Dropped, now useless.
+  * debian/usbmuxd.postrm: Use "command -v" for detection instead of
+    hardcoded path (lintian).
+
+ -- Boyuan Yang <byang@debian.org>  Tue, 01 Aug 2023 22:54:53 -0400
+
 usbmuxd (1.1.1-2) unstable; urgency=medium
 
   * Upload to unstable

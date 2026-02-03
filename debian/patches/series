@@ -1,2 +1,5 @@
 Fix-FTBFS-in-kfreebsd.patch
 0002-drop-PIDFile-directive-use-default-one-in-run.patch
+0003-Port-to-libplist-2.3.0.patch
+0004-conf-Fix-false-plist-read-write-errors-caused-by-usi.patch
+0005-conf-Make-sure-to-sanitize-input-for-SavePairRecord-.patch

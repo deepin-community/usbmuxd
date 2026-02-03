@@ -8,7 +8,7 @@ Bug-Debian: http://bugs.debian.org/765010
  1 file changed, 1 insertion(+)
 
 diff --git a/src/device.c b/src/device.c
-index 87a36cc..b6741b7 100644
+index 0402092..ce9bfc3 100644
 --- a/src/device.c
 +++ b/src/device.c
 @@ -20,6 +20,7 @@
