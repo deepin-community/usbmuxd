@@ -1,3 +1,9 @@
+usbmuxd (1.1.1-2deepin1) unstable; urgency=medium
+
+  * d/patch: add fix for path traversal vulnerability (CVE-2025-66004)
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Tue, 03 Feb 2026 14:37:59 +0800
+
 usbmuxd (1.1.1-2) unstable; urgency=medium
 
   * Upload to unstable
