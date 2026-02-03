@@ -1,2 +1,4 @@
 Fix-FTBFS-in-kfreebsd.patch
 0002-drop-PIDFile-directive-use-default-one-in-run.patch
+0003-conf-Make-sure-to-sanitize-input-for-SavePairRecord-.patch
+0004-conf-Remove-format-parameter-from-plist_from_memory-.patch

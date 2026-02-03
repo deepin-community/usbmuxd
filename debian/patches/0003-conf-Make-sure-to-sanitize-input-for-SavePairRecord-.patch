@@ -1,0 +1,50 @@
+From: Nikias Bassen <nikias@gmx.li>
+Date: Sat, 6 Dec 2025 02:13:05 +0100
+Subject: conf: Make sure to sanitize input for SavePairRecord command
+
+A path traversal vulnerability was discovered in usbmuxd that allows
+arbitrary, unprivileged local users to delete and create files named
+`*.plist` as the `usbmux` user.
+
+See https://bugzilla.opensuse.org/show_bug.cgi?id=1254302
+---
+ src/conf.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
+
+diff --git a/src/conf.c b/src/conf.c
+index 609d246..96d82c9 100644
+--- a/src/conf.c
++++ b/src/conf.c
+@@ -34,6 +34,7 @@
+ #include <libgen.h>
+ #include <sys/stat.h>
+ #include <errno.h>
++#include <ctype.h>
+ 
+ #ifdef WIN32
+ #include <shlobj.h>
+@@ -405,13 +406,19 @@ int config_set_device_record(const char *udid, char* record_data, uint64_t recor
+ 	if (!udid || !record_data || record_size < 8)
+ 		return -EINVAL;
+ 
+-	plist_t plist = NULL;
+-	if (memcmp(record_data, "bplist00", 8) == 0) {
+-		plist_from_bin(record_data, record_size, &plist);
+-	} else {
+-		plist_from_xml(record_data, record_size, &plist);
++	/* verify udid input */
++	const char* u = udid;
++	while (*u != '\0') {
++		if (!isalnum(*u) && (*u != '-')) {
++			usbmuxd_log(LL_ERROR, "ERROR: %s: udid contains invalid character.\n", __func__);
++			return -EINVAL;
++		}
++		u++;
+ 	}
+ 
++	plist_t plist = NULL;
++	plist_from_memory(record_data, record_size, &plist, NULL);
++
+ 	if (!plist || plist_get_node_type(plist) != PLIST_DICT) {
+ 		if (plist)
+ 			plist_free(plist);
