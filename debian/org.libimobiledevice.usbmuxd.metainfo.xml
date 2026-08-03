@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component>
   <id>org.libimobiledevice.usbmuxd</id>
-  <metadata_license>GPL-3+</metadata_license>
+  <metadata_license>MIT</metadata_license>
   <name>usbmuxd</name>
   <summary>Socket daemon to multiplex connections from and to iOS devices</summary>
   <description>
