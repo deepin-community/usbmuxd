@@ -12,7 +12,7 @@ See https://bugzilla.opensuse.org/show_bug.cgi?id=1254302
  1 file changed, 12 insertions(+), 5 deletions(-)
 
 diff --git a/src/conf.c b/src/conf.c
-index 609d246..96d82c9 100644
+index f9fce08..fdba707 100644
 --- a/src/conf.c
 +++ b/src/conf.c
 @@ -34,6 +34,7 @@
@@ -23,7 +23,7 @@ index 609d246..96d82c9 100644
  
  #ifdef WIN32
  #include <shlobj.h>
-@@ -405,13 +406,19 @@ int config_set_device_record(const char *udid, char* record_data, uint64_t recor
+@@ -406,13 +407,19 @@ int config_set_device_record(const char *udid, char* record_data, uint64_t recor
  	if (!udid || !record_data || record_size < 8)
  		return -EINVAL;
  

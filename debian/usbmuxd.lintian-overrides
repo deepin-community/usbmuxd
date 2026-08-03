@@ -1,2 +1,0 @@
-# usbmuxd.service is called through udev
-usbmuxd: systemd-service-file-missing-install-key lib/systemd/system/usbmuxd.service
